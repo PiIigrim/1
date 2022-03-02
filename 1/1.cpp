@@ -71,9 +71,9 @@ Sponsor* AddStruct(Sponsor* Obj, const int amount)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void setData(Sponsor* Obj, const int amount)
 {
-	cout << "Фамилия: ";
-	cin.getline(Obj[amount].name, 32);
 	cout << "Имя: ";
+	cin.getline(Obj[amount].name, 32);
+	cout << "Фамилия: ";
 	cin.getline(Obj[amount].surname, 32);
 	cout << "Отчество: ";
 	cin.getline(Obj[amount].lastname, 32);
@@ -99,11 +99,26 @@ void setData(Sponsor* Obj, const int amount)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void showData(const Sponsor* Obj, const int amount)
 {
-	system("cls");
-	cout << "№  " << "Имя\t" << "Фамилия\t" << "Отчество\t" << "Домашний адрес\t" << "Национальность\t" << "Дата рождения\t" << "номер цеха\t" << "Табельный номер\t" << "Образование\t" << "Год поступления на работу\t" << endl;
-	cout << "========================================" << endl;
-	for (int i = 0; i < amount; i++)
-	{
-		cout << i + 1 << "  " << Obj[i].name << '\t' << Obj[i].surname << '\t' << Obj[i].lastname << '\t' << Obj[i].homeadress << '\t' << Obj[i].nation << '\t' << Obj[i].birth << '\t' << Obj[i].guld << '\t' << Obj[i].tabnom << '\t' << Obj[i].educ << '\t' << Obj[i].prinat << '\t' << endl;
-	}
+	char option;
+	int a = 1;
+	cout << "Инструкция: 1-вывод всей базы";
+	cin >> option;
+	switch (option) {
+	case 'a':
+		cout << "№  " << "Имя\t" << "Фамилия\t" << "Отчество\t" << "Домашний адрес\t" << "Национальность\t" << "Дата рождения\t" << "номер цеха\t" << "Табельный номер\t" << "Образование\t" << "Год поступления на работу\t" << endl;
+		cout << "========================================" << endl;
+		for (int i = 0; i < amount; i++)
+		{
+			cout << i + 1 << "  " << Obj[i].name << '\t' << Obj[i].surname << '\t' << Obj[i].lastname << '\t' << Obj[i].homeadress << '\t' << Obj[i].nation << '\t' << Obj[i].birth << '\t' << Obj[i].guld << '\t' << Obj[i].tabnom << '\t' << Obj[i].educ << '\t' << Obj[i].prinat << '\t' << endl;
+		}
+		break;
+	case 'b':
+		cout << "№  " << "Имя\t" << endl;
+		cout << "========================================" << endl;
+		for (int i = 0; i < amount; i++)
+		{
+			cout << i + 1 << "  " << Obj[i].name << endl;
+		}
+		break;
+		}
 }

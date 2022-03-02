@@ -10,12 +10,8 @@ struct Sponsor
 	char surname[32];
 	char lastname[32];
 	char homeadress[128];
-	char nation[32];
-	char birth[32];
-	double guld;
-	double tabnom;
-	char educ[32];
-	double prinat;
+	char group[32];
+	char rate[32];
 };
 
 Sponsor* AddStruct(Sponsor* Obj, const int amount);
@@ -79,21 +75,10 @@ void setData(Sponsor* Obj, const int amount)
 	cin.getline(Obj[amount].lastname, 32);
 	cout << "Домашний адресс: ";
 	cin.getline(Obj[amount].homeadress, 128);
-	cout << "Национальность: ";
-	cin.getline(Obj[amount].nation, 32);
-	cout << "Дата рождения: ";
-	cin.getline(Obj[amount].birth, 32);
-	cout << "Номер цеха: ";
-	cin >> Obj[amount].guld;
-	cin.get();
-	cout << "Табельный номер: ";
-	cin >> Obj[amount].tabnom;
-	cin.get();
-	cout << "Образование: ";
-	cin.getline(Obj[amount].educ, 32);
-	cout << "Год поступления на работу: ";
-	cin >> Obj[amount].prinat;
-	cin.get();
+	cout << "Группа: ";
+	cin.getline(Obj[amount].group, 32);
+	cout << "Рейтинг: ";
+	cin.getline(Obj[amount].rate, 32);
 	cout << endl;
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,24 +86,82 @@ void showData(const Sponsor* Obj, const int amount)
 {
 	char option;
 	int a = 1;
-	cout << "Инструкция: 1-вывод всей базы";
-	cin >> option;
-	switch (option) {
-	case 'a':
-		cout << "№  " << "Имя\t" << "Фамилия\t" << "Отчество\t" << "Домашний адрес\t" << "Национальность\t" << "Дата рождения\t" << "номер цеха\t" << "Табельный номер\t" << "Образование\t" << "Год поступления на работу\t" << endl;
-		cout << "========================================" << endl;
-		for (int i = 0; i < amount; i++)
-		{
-			cout << i + 1 << "  " << Obj[i].name << '\t' << Obj[i].surname << '\t' << Obj[i].lastname << '\t' << Obj[i].homeadress << '\t' << Obj[i].nation << '\t' << Obj[i].birth << '\t' << Obj[i].guld << '\t' << Obj[i].tabnom << '\t' << Obj[i].educ << '\t' << Obj[i].prinat << '\t' << endl;
+	cout << "Инструкция: b-база, n-имена, f-фамилии, o-отчество, d-домашний адрес, g-группы, r-рейтинг, i-инструкция, e-выход" << endl;
+	while (a > 0) {
+		cin >> option;
+		switch (option) {
+		case 'b':
+			cout << "№  " << "Имя\t" << "Фамилия\t" << "Отчество\t" << "Домашний адрес\t" << "Группа\t" << "Рейтинг\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].name << '\t' << Obj[i].surname << '\t' << Obj[i].lastname << '\t' << Obj[i].homeadress << '\t' << Obj[i].group << '\t' << Obj[i].rate << endl;
+			}
+			cout << endl;
+			break;
+		case 'n':
+			cout << "№  " << "Имя\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].name << endl;
+			}
+			cout << endl;
+			break;
+		case 'f':
+			cout << "№  " << "Фамилия\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].surname << endl;
+			}
+			cout << endl;
+			break;
+		case 'o':
+			cout << "№  " << "Отчество\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].lastname << endl;
+			}
+			cout << endl;
+			break;
+		case 'd':
+			cout << "№  " << "Домаший адрес\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].homeadress << endl;
+			}
+			cout << endl;
+			break;
+		case 'g':
+			cout << "№  " << "Группа\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].group << endl;
+			}
+			cout << endl;
+			break;
+		case 'r':
+			cout << "№  " << "Рейтинг\t" << endl;
+			cout << "========================================" << endl;
+			for (int i = 0; i < amount; i++)
+			{
+				cout << i + 1 << "  " << Obj[i].rate << endl;
+			}
+			cout << endl;
+			break;
+		case 'i':
+			cout << "Инструкция: b-база, n-имена, f-фамилии, o-отчество, d-домашний адрес, g-группы, r-рейтинг, i-инструкция" << endl;
+			cout << endl;
+			break;
+		case 'e':
+			system("cls");
+			exit(0);
+		default:
+			break;
 		}
-		break;
-	case 'b':
-		cout << "№  " << "Имя\t" << endl;
-		cout << "========================================" << endl;
-		for (int i = 0; i < amount; i++)
-		{
-			cout << i + 1 << "  " << Obj[i].name << endl;
-		}
-		break;
-		}
+	}
 }

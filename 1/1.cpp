@@ -88,6 +88,7 @@ void showData(const Sponsor* Obj, const int amount)
 	int a = 1;
 	cout << "Инструкция: b-база, n-имена, f-фамилии, o-отчество, d-домашний адрес, g-группы, r-рейтинг, i-инструкция, e-выход" << endl;
 	while (a > 0) {
+		cout << "Введите опцию: ";
 		cin >> option;
 		switch (option) {
 		case 'b':
@@ -161,7 +162,7 @@ void showData(const Sponsor* Obj, const int amount)
 			system("cls");
 			exit(0);
 		default:
-			break;
+			cout << "Такой опции нет, если забыли, введите i";
 		}
 	}
 }
